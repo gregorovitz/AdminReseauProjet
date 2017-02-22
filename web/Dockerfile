@@ -24,7 +24,8 @@ ENV APACHE_PID_FILE /var/run/apache2.pid
 EXPOSE 80
 
 # Copy this repo into place.
-ADD www /var/www/site
+ADD www /var/www/site1
+ADD b2b /var/www/site2
 
 # Update the default apache site with the config we created.
 ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
