@@ -2,6 +2,7 @@
 	<head>
 		<link rel=stylesheet href="style.css">
 		<title>Site Dynamique</title>
+		<meta charset="UTF-8">
 	</head>
   <body>
     <h1>Bienvenue sur le site b2b.wt17.ephec-ti.be</h1>
