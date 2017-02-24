@@ -7,7 +7,7 @@
     <p> Marquebreucq Emmanuel</p>
     <p> Brancart Clément </p>
     <hr>
-    <p> voici un tableau provenant de la db </p>'
+    <p> voici un tableau provenant de la db </p>
   </body>
 </html>
-?>
+'
