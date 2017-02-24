@@ -1,12 +1,20 @@
 <html>
-  <body style="text-align:center;">
+	<head>
+		<link rel=stylesheet href="style.css">
+		<title>Site Dynamique</title>
+	</head>
+  <body>
     <h1>Bienvenue sur le site b2b.wt17.ephec-ti.be</h1>
-    <p> groupe 17 <p>
-    <p> Scuflaire Thomas<p>
-    <p> Marquebreucq Emmanuel</p>
-    <p> Brancart Clément </p>
-    <hr>
-    <p> voici un tableau provenant de la db </p>
+	<fieldset>
+		<legend> Groupe n°17 </legend>
+		<table>
+			<tr><th>Nom</th><th>Prenom</th><th>Classe</th></tr>
+			<tr><td>Scuflaire</td><td>Thomas</td><td>2TL2</td></tr>
+			<tr><td>Marquebreucq</td><td>Emmanuel</td><td>2TL2</td></tr>
+			<tr><td>Brancart</td><td>Clément</td><td>2TL2</td></tr>
+		</table>
+	</fieldset>
+    <p> voici un tableau provenant de la db : à venir ... </p>
   </body>
 </html>
 
