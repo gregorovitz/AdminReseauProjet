@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-MAINTAINER Dan Pupius <dan@pupi.us>
+MAINTAINER Scuflaire Thomas <t.scuflaire@students.ephec.be>
 
 # Install apache, PHP, and supplimentary programs. openssh-server, curl, and lynx-cur are for debugging the container.
 RUN apt-get update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive apt-get -y install \
@@ -26,6 +26,7 @@ EXPOSE 80
 # Copy this repo into place.
 ADD www /var/www/site1
 ADD b2b /var/www/site2
+ADD intranet /var/www/site3
 
 # Update the default apache site with the config we created.
 ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
