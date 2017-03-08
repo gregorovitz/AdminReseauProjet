@@ -8,15 +8,14 @@ RUN apt-get update \
  && apt-get install -y bind9 dnsutils \
  && rm -rf /var/lib/apt/lists/*
 
-COPY entrypoint.sh /sbin/entrypoint.sh
-RUN chmod 755 /sbin/entrypoint.sh
+ADD start /start
+RUN chmod 755 /start
 
 
 # Expose dns 
 EXPOSE 53/udp 53/tcp 
 VOLUME ["${DATA_DIR}"]
-ENTRYPOINT ["/sbin/entrypoint.sh"]
-CMD ["/usr/sbin/named"]
+CMD ["/start"]
 
 # Copy this repo into place.
 ADD named.conf.local /etc/bind/named.conf.local
