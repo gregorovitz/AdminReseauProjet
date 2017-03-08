@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-MAINTAINER Emmanuel Marquebreucq <e.marquebreucq@students.ephec.be>
+MAINTAINER Emmanuël Marquebreucq <e.marquebreucq@students.ephec.be>
 
 ENV BIND_USER=bind \
     BIND_VERSION=1:9.9.5 \
