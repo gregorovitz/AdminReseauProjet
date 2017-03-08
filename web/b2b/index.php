@@ -5,17 +5,39 @@
 		<meta charset="UTF-8">
 	</head>
   <body>
-    <h1>Bienvenue sur le site b2b.wt17.ephec-ti.be</h1>
-	<fieldset>
-		<legend> Groupe n°17 </legend>
-		<table>
-			<tr><th>Nom</th><th>Prenom</th><th>Classe</th></tr>
-			<tr><td>Scuflaire</td><td>Thomas</td><td>2TL2</td></tr>
-			<tr><td>Marquebreucq</td><td>Emmanuel</td><td>2TL2</td></tr>
-			<tr><td>Brancart</td><td>Clément</td><td>2TL2</td></tr>
-		</table>
-	</fieldset>
-    <p> voici un tableau provenant de la db : à venir ... </p>
+	<nav>
+		<ul>
+		 <li><a href="www.wt17.ephec-ti.be">Site statique</a></li>
+		 <li><a href="b2b.wt17.ephec-ti.be">Site dynamique</a></li>
+		 <li><a href="intranet.wt17.ephec-ti.be">Intranet</a></li>
+		</ul>
+	</nav>
+    <h1>Site Dynamique [b2b]</h1>
+	<section>
+		<fieldset>
+			<legend> Répartition du travail </legend>
+			<article>
+				<h4>Scuflaire Thomas 2TL2</h4>
+				<hr>
+				<p> Responsable de la partie web. Mise en place du serveur apache 7.0, la configuration
+					se trouve sur Github qui est relié à Dockerhub ce qui permet le build automatique à 
+					chaques modifications.</p>
+			</article>
+			<article>
+				<h4>Marquebreucq Emmanuel 2TL2</h4>
+				<hr>
+				<p> Responsable de la partie DNS. </p>
+			</article>
+			<article>
+				<h4>Brancart Clément 2TL2</h4>
+				<hr>
+				<p> Responsable de la partie Base de Donnée. Utilisation des bdd Mysql.</p>
+			</article>
+		</fieldset>
+	</section>
+	<hr>
+    <p> Un tableau prouvant la connexion à la db sera affiché ici quand elle sera disponible<br><br> Adresse du site : <b>b2b.wt17.ephec-ti.be</b> </p>
   </body>
 </html>
+
 
