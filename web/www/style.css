@@ -4,10 +4,10 @@ html{
 }
 body{
 	background:#475459;
+	margin:0
 }
 fieldset{
 	width:400px;
-	border-radius:20px;
 	border-color:#191D1F;
 	margin:auto;
 	margin-bottom:75px;
@@ -28,9 +28,39 @@ th,td{
 th,legend{
 	font-weight:bold;
 }
+legend{
+	border:2px dotted black;
+	border-radius:10px;
+	padding:5px;
+	
+}
 h1{
 	text-decoration:underline;
 	margin-top:50px;
 	font-style:italic;
 }
+nav{
+	width:100%;
+	background:black;
+}
 
+ul {
+ padding:0;
+ list-style-type:none;
+ }
+li {
+ display:inline-block;
+ }
+ul li a {
+ display:block;   
+ width:150px;
+ line-height:50px; /*hauteur de l'image de fond*/
+ background:black;
+ color:#DCDCDC;
+ text-decoration:none;
+ text-align:center;
+ }
+ul li a:hover {
+ background:DarkGrey;
+ color:white;
+ }  
