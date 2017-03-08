@@ -1,8 +1,7 @@
 FROM ubuntu:latest
 MAINTAINER Emmanuel Marquebreucq <e.marquebreucq@students.ephec.be>
 
-ENV 
-    DATA_DIR=/data
+ENV DATA_DIR=/data
 
 # Install bind
 RUN apt-get update \
