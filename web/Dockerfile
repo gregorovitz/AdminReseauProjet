@@ -5,11 +5,6 @@ MAINTAINER Scuflaire Thomas <t.scuflaire@students.ephec.be>
 RUN apt-get update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive apt-get -y install \
     apache2 php7.0 php7.0-mysql libapache2-mod-php7.0 curl lynx-cur
 
-
-# Générer certificat SSL pour https
-RUN a2enmod ssl
-RUN a2ensite defaut-ssl
-
 # Activation des mods php
 RUN a2enmod php7.0
 RUN a2enmod rewrite
@@ -35,6 +30,12 @@ ADD intranet /var/www/site3
 
 # remplacer la config de base par la nouvelle
 ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
+
+#HTTPS
+RUN openssl req -new -x509 -days 365 -nodes -out /etc/ssl/certs/mailserver.crt -keyout /etc/ssl/private/mailserver.key
+RUN Common Name (eg, YOUR name) [] : wt17.ephec-ti.be
+RUN chmod 440 /etc/ssl/private/mailserver.key
+RUN a2enmod ssl
 
 # démarrer apache en tâche de fond
 CMD /usr/sbin/apache2ctl -D FOREGROUND
