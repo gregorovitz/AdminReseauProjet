@@ -4,16 +4,11 @@ MAINTAINER Scuflaire Thomas <t.scuflaire@students.ephec.be>
 # Installation d'apache et des autres programmes nécessaire
 RUN apt-get update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive apt-get -y install \
     apache2 php7.0 php7.0-mysql libapache2-mod-php7.0 curl lynx-cur
-RUN apt-get install ssl-cert
+
 
 # Générer certificat SSL pour https
 RUN a2enmod ssl
-RUN make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/ssl/private/localhost.pem
-RUN cd /etc/apache2/sites-available/
-#RUN cp default ssl
-RUN sed -i '1,2s/\*:80/*:443/' ssl
-RUN sed -i "3a\\\tSSLEngine On\n\tSSLCertificateFile /etc/ssl/private/localhost.pem" ssl
-RUN a2ensite ssl
+RUN a2ensite defaut-ssl
 
 # Activation des mods php
 RUN a2enmod php7.0
