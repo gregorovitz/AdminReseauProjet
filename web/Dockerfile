@@ -31,11 +31,5 @@ ADD intranet /var/www/site3
 # remplacer la config de base par la nouvelle
 ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 
-#HTTPS
-RUN openssl req -new -x509 -days 365 -nodes -out /etc/ssl/certs/mailserver.crt -keyout /etc/ssl/private/mailserver.key
-RUN Common Name (eg, YOUR name) [] : wt17.ephec-ti.be
-RUN chmod 440 /etc/ssl/private/mailserver.key
-RUN a2enmod ssl
-
 # démarrer apache en tâche de fond
 CMD /usr/sbin/apache2ctl -D FOREGROUND
