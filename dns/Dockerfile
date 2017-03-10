@@ -19,8 +19,5 @@ CMD ["/start"]
 
 # Copy this repo into place.
 ADD named.conf.local /etc/bind/named.conf.local
-<<<<<<< HEAD
-ADD db.wt17.ephec-ti.be /var/lib/bind/wt17.ephec-ti.be.hosts
-=======
 ADD db.wt17.ephec-ti.be /var/lib/bind/db.wt17.ephec-ti.be
->>>>>>> origin/master
+
