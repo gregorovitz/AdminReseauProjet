@@ -10,7 +10,7 @@ RUN apt-get install ssl-cert
 RUN a2enmod ssl
 RUN make-ssl-cert /usr/share/ssl-cert/ssleay.cnf /etc/ssl/private/localhost.pem
 RUN cd /etc/apache2/sites-available/
-RUN cp default ssl
+#RUN cp default ssl
 RUN sed -i '1,2s/\*:80/*:443/' ssl
 RUN sed -i "3a\\\tSSLEngine On\n\tSSLCertificateFile /etc/ssl/private/localhost.pem" ssl
 RUN a2ensite ssl
