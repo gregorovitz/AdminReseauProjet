@@ -20,5 +20,5 @@ CMD ["/start"]
 # Copy this repo into place.
 ADD named.conf.local /etc/bind/named.conf.local
 ADD db.wt17.ephec-ti.be.hosts /var/lib/bind/db.wt17.ephec-ti.be.hosts
-
+Run  chmod -R 755 /var/lib/bind 
 
