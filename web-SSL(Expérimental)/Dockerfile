@@ -36,7 +36,6 @@ ADD intranet /var/www/site3
 
 # remplacer la config de base par la nouvelle
 ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
-ADD default-ssl.conf /etc/apache2/sites-enabled/
-
+ADD apache-config.conf /etc/apache2/sites-enabled/default-ssl.conf
 # démarrer apache en tâche de fond
 CMD /usr/sbin/apache2ctl -D FOREGROUND
