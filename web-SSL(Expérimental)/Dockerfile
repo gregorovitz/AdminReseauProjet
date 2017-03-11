@@ -38,6 +38,5 @@ ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 ADD apache-config.conf /etc/apache2/sites-enabled/default-ssl.conf
 
 RUN a2enmod ssl
-RUN a2ensite default-ssl
 # démarrer apache en tâche de fond
 CMD /usr/sbin/apache2ctl -D FOREGROUND
