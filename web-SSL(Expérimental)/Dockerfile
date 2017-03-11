@@ -11,7 +11,7 @@ RUN a2enmod rewrite
 RUN a2enmod ssl
 
 # creation certificat ssl
-RUN openssl req -x509 -nodes -days 365 -newkey rsa:1024 -out /etc/apache2/server.crt -keyout /etc/apache2/server.key BE BELGIUM GENAPPE WT17 WT17 wt17.ephec-ti.be t.scuflaire@students.ephec.be
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:1024 -out /etc/apache2/server.crt -keyout /etc/apache2/server.key -subj "/C=BE/ST=Belgium/L=Genappe/O=wt17k/OU=wt17/CN=wt17.ephec-ti.be"
 RUN chmod o-rw /etc/apache2/server.key
 
 # Update the PHP.ini file, enable <? ?> tags and quieten logging.
