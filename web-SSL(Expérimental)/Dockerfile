@@ -8,7 +8,6 @@ RUN apt-get update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive apt-g
 # Activation des mods php
 RUN a2enmod php7.0
 RUN a2enmod rewrite
-RUN a2enmod ssl
 
 # creation certificat ssl
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:1024 -out /etc/apache2/server.crt -keyout /etc/apache2/server.key -subj "/C=BE/ST=Belgium/L=Genappe/O=wt17k/OU=wt17/CN=www.wt17.ephec-ti.be"
@@ -37,5 +36,8 @@ ADD intranet /var/www/site3
 # remplacer la config de base par la nouvelle
 ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 ADD apache-config.conf /etc/apache2/sites-enabled/default-ssl.conf
+
+RUN a2enmod ssl
+RUN a2ensite default-ssl
 # démarrer apache en tâche de fond
 CMD /usr/sbin/apache2ctl -D FOREGROUND
