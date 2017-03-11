@@ -10,6 +10,17 @@ RUN a2enmod php7.0
 RUN a2enmod rewrite
 RUN a2enmod ssl
 
+# creation certificat ssl
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:1024 -out /etc/apache2/server.crt -keyout /etc/apache2/server.key
+Country Name (2 letter code) [GB]: BE
+State or Province Name (full name) [Some-State]: BELGIUM
+Locality Name (eg, city) []: GENAPPE
+Organization Name (eg, company; recommended) []: WT17
+Organizational Unit Name (eg, section) []: WT17
+Common Name (eg, YOUR name) []: wt17.ephec-ti.be
+Email Address []: t.scuflaire@students.ephec.be
+RUN chmod o-rw /etc/apache2/server.key
+
 # Update the PHP.ini file, enable <? ?> tags and quieten logging.
 RUN sed -i "s/short_open_tag = Off/short_open_tag = On/" /etc/php/7.0/apache2/php.ini
 RUN sed -i "s/error_reporting = .*$/error_reporting = E_ERROR | E_WARNING | E_PARSE/" /etc/php/7.0/apache2/php.ini
@@ -22,7 +33,7 @@ ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_PID_FILE /var/run/apache2.pid
 
 # Exposer le port 80 à apache
-#EXPOSE 80
+EXPOSE 80
 EXPOSE 443
 
 # Injecter les fichiers au bon endroit
