@@ -1,2 +1,6 @@
 Démarrage web : sudo docker run -p 80:80 -d thomasscuflaire/adminreseauprojet:web
 Démarrage mysql : sudo docker run -p 3306:3306 -d -v /var/lib/mysql:/var/lib/mysql thomasscuflaire/adminreseauprojet:mysql
+
+Arrêt containers : sudo docker stop $(sudo docker ps -a -q)
+Suppression containers : sudo docker rm $(sudo docker ps -a -q)
+Suppression images : sudo docker rmi $(sudo docker images -q)
