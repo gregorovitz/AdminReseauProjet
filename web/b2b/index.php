@@ -6,7 +6,14 @@ try{
     $infos = $sth->execute();
     $infos = $sth->fetchAll(PDO::FETCH_ASSOC);
     $dbh = null;
-    $ligne.='<tr><td><pre>'.print_r($infos,true).'</pre></td></tr>';
+    $ligne="<article><table><tr><th>NOM</th><th>PRENOM</th></tr>";
+    foreach($infos as $key=>$value){
+	    $ligne.='<tr>';
+	    $ligne.='<td>'.$array[$key]["nom"].'</td>';
+	    $ligne.='<td>'.$array[$key]["prenom"].'</td>';
+	    $ligne.='</tr>';
+    }
+    $ligne.="</table></article>";
 }
 catch (PDOException $Exception){
     $ligne='<tr><td>'.$Exception->getMessage( ).'</td></tr>';
@@ -50,7 +57,7 @@ echo'
 		</fieldset>
 	</section>
 	<hr>
-    <p> Un tableau prouvant la connexion à la db sera affiché ici quand elle sera disponible
+    <p> Tableau de donnée venant de la base de donnée :
 <table>
 		  <tr><th>NOM</th><th>PRENOM</th></tr>
 '.$ligne.'
