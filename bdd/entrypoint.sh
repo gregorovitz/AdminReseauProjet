@@ -2,7 +2,7 @@
 set -e
 
 DB_NAME=${DB_NAME:-"test"}
-DB_USER=${DB_USER:-"thomas"}
+DB_USER=${DB_USER:-"pseudo"}
 DB_PASS=${DB_PASS:-"wt17"}
 
 DB_REMOTE_ROOT_NAME=${DB_REMOTE_ROOT_NAME:-"thomas"}
