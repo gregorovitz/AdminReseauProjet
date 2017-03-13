@@ -9,8 +9,8 @@ try{
     $ligne="";
     foreach($infos as $key=>$value){
 	    $ligne.='<tr>';
-	    $ligne.='<td>'.$array[$key]["nom"].'</td>';
-	    $ligne.='<td>'.$array[$key]["prenom"].'</td>';
+	    $ligne.='<td>'.$infos[$key]["nom"].'</td>';
+	    $ligne.='<td>'.$infos[$key]["prenom"].'</td>';
 	    $ligne.='</tr>';
     }
 }
@@ -56,14 +56,14 @@ echo'
 		</fieldset>
 	</section>
 	<hr>
+	<p> Tableau de donnée venant de la base de donnée : </p>
 	<article>
 	    <table>
 	      <tr><th>NOM</th><th>PRENOM</th></tr>
 	      '.$ligne.'
 	    </table>
 	</article>
-    <p> Tableau de donnée venant de la base de donnée :
-	    <br><br> Adresse du site : <b>b2b.wt17.ephec-ti.be</b> </p>
+	<br><br><p> Adresse du site : <b>b2b.wt17.ephec-ti.be</b> </p>
   </body>
 </html>';
 
