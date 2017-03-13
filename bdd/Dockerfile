@@ -3,7 +3,7 @@ MAINTAINER sameer@damagehead.com
 
 ENV MYSQL_USER=mysql \
     MYSQL_DATA_DIR=/var/lib/mysql \
-    MYSQL_RUN_DIR=/run/mysqld \
+    MYSQL_RUN_DIR=/var/lib/mysql \
     MYSQL_LOG_DIR=/var/log/mysql
 
 RUN apt-get update \
