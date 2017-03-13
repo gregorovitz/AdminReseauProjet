@@ -8,10 +8,10 @@ $infos = $sth->fetchAll(PDO::FETCH_ASSOC);
 $dbh = null;
 $ligne="";
     foreach($infos as $elem){
-        $ligne+='<tr>';
-        $ligne+='<td>'.$infos[$elem][nom].'</td>';
-        $ligne+='<td>'.$infos[$elem][prenom].'</td>';
-        $ligne+='</tr>';
+        $ligne.='<tr>';
+        $ligne.='<td>'.$infos[$elem][nom].'</td>';
+        $ligne.='<td>'.$infos[$elem][prenom].'</td>';
+        $ligne.='</tr>';
     }
 }
 catch (PDOException $Exception){
