@@ -1,0 +1,2 @@
+Démarrage web : sudo docker run -p 80:80 -d thomasscuflaire/adminreseauprojet:web
+Démarrage mysql : sudo docker run -p 3306:3306 -d -v /var/lib/mysql:/var/lib/mysql thomasscuflaire/adminreseauprojet:mysql
