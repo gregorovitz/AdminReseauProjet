@@ -1,6 +1,6 @@
 <?php
-$sql="SELECT * from test.clients";
-$dbh = new PDO('mysql:host="localhost";dbname="test","pseudo","wt17");
+$sql='SELECT * from test.clients';
+$dbh = new PDO('mysql:host=79.137.38.244;dbname="test","pseudo","wt17"');
 $sth = $dbh->prepare($sql);
 $infos = $sth->execute();
 $infos = $sth->fetchAll(PDO::FETCH_ASSOC);
@@ -8,8 +8,8 @@ $dbh = null;
 $ligne="";
 foreach($infos as $elem){
 	$ligne+='<tr>';
-	$ligne+='<td>'.$infos[$elem][.'"nom"'.].'</td>';
-	$ligne+='<td>'.$infos[$elem][.'"prenom"'.].'</td>';
+	$ligne+='<td>'.$infos[$elem][nom].'</td>';
+	$ligne+='<td>'.$infos[$elem][prenom].'</td>';
 	$ligne+='</tr>';
 }
 echo'
@@ -52,9 +52,9 @@ echo'
 	</section>
 	<hr>
     <p> Un tableau prouvant la connexion à la db sera affiché ici quand elle sera disponible
-	  <table>
+<table>
 		  <tr><th>NOM</th><th>PRENOM</th></tr>
-		  '..'
+'.$ligne.'
 	  </table>
 	    
 	    <br><br> Adresse du site : <b>b2b.wt17.ephec-ti.be</b> </p>
