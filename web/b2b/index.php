@@ -1,7 +1,7 @@
 <?php
 try{
 $sql='SELECT * from test.clients';
-$dbh = new PDO('mysql:host=127.0.0.1;dbname=test','pseudo','wt17');
+$dbh = new PDO('mysql:host=172.17.0.1;dbname=test','pseudo','wt17');
 $sth = $dbh->prepare($sql);
 $infos = $sth->execute();
 $infos = $sth->fetchAll(PDO::FETCH_ASSOC);
