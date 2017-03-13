@@ -1,18 +1,20 @@
-FROM ubuntu
+FROM sameersbn/ubuntu:14.04.20170123
+MAINTAINER sameer@damagehead.com
 
-RUN dpkg-divert --local --rename --add /sbin/initctl
-RUN ln -s /bin/true /sbin/initctl
+ENV MYSQL_USER=mysql \
+    MYSQL_DATA_DIR=/var/lib/mysql \
+    MYSQL_RUN_DIR=/run/mysqld \
+    MYSQL_LOG_DIR=/var/log/mysql
 
-RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
-RUN apt-get update
+RUN apt-get update \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server \
+ && rm -rf ${MYSQL_DATA_DIR} \
+ && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get -y install mysql-server
+COPY entrypoint.sh /sbin/entrypoint.sh
+RUN chmod 755 /sbin/entrypoint.sh
 
-RUN sed -i -e"s/^bind-address\s*=\s*127.0.0.1/bind-address = 0.0.0.0/" /etc/mysql/my.cnf
-ADD ./startup.sh /opt/startup.sh
-
-  
-EXPOSE 3306
-
-
-CMD ["/bin/bash", "/opt/startup.sh"]
+EXPOSE 3306/tcp
+VOLUME ["${MYSQL_DATA_DIR}", "${MYSQL_RUN_DIR}"]
+ENTRYPOINT ["/sbin/entrypoint.sh"]
+CMD ["/usr/bin/mysqld_safe"]
