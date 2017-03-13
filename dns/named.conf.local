@@ -8,5 +8,5 @@
 
 zone "wt17.ephec-ti.be" {
 	type master;
-	file "/var/lib/bind/db.wt17.ephec-ti.be";
+	file "/var/lib/bind/wt17.ephec-ti.be";
 	};
