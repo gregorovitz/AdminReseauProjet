@@ -11,14 +11,15 @@ RUN apt-get update \
 ADD start /start
 RUN chmod 755 /start
 
+# Copy this repo into place.
+ADD named.conf.local /etc/bind/named.conf.local
+ADD db.wt17.ephec-ti.be.hosts /var/lib/bind/wt17.ephec-ti.be
+Run  chmod  755 /var/lib/bind/wt17.ephec-ti.be
 
 # Expose dns 
 EXPOSE 53/udp 53/tcp 
 VOLUME ["${DATA_DIR}"]
 CMD ["/start"]
 
-# Copy this repo into place.
-ADD named.conf.local /etc/bind/named.conf.local
-ADD db.wt17.ephec-ti.be.hosts /var/lib/bind/wt17.ephec-ti.be
-Run  chmod  755 /var/lib/bind/wt17.ephec-ti.be
+
 
