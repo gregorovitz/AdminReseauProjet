@@ -3,10 +3,9 @@ MAINTAINER Scuflaire Thomas <t.scuflaire@students.ephec.be>
 
 # Installation d'apache et des autres programmes nécessaire
 RUN apt-get update 
-    && apt-get -y upgrade 
-    && DEBIAN_FRONTEND=noninteractive apt-get -y install \
-    apache2 php7.0 php7.0-mysql libapache2-mod-php7.0 curl lynx-cur
-    && docker-php-ext-install pdo_mysql
+RUN apt-get -y upgrade 
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install \ apache2 php7.0 php7.0-mysql libapache2-mod-php7.0 curl lynx-cur
+RUN docker-php-ext-install pdo_mysql
 
 # Activation des mods php
 RUN a2enmod php7.0
