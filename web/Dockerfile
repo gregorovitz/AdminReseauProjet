@@ -7,9 +7,20 @@ RUN apt-get update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive apt-g
     apache2 php7.0 php7.0-mysql libapache2-mod-php7.0 curl lynx-cur
 
 
-RUN docker-php-ext-install mysql 
-RUN docker-php-ext-install mysqli 
-RUN docker-php-ext-install pdo_mysql 
+RUN apt-get update && apt-get install -y \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libmcrypt-dev \
+        libpng12-dev \
+    libicu-dev \
+     libxml2-dev \
+    vim \
+        wget \
+        unzip \
+        git \
+    && docker-php-ext-install -j$(nproc) iconv intl xml soap mcrypt opcache pdo pdo_mysql mysqli mbstring \
+    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install -j$(nproc) gd
 
     
 RUN sed -i 's/docker-php-\(ext-$ext.ini\)/\1/' /usr/local/bin/docker-php-ext-install
