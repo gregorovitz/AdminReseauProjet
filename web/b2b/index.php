@@ -15,7 +15,7 @@ $ligne="";
     }
 }
 catch (PDOException $Exception){
-    $ligne=$Exception->getMessage( );
+    $ligne='<tr><td>'.$Exception->getMessage( ).'</td></tr>';
 }
 echo'
 <html>
