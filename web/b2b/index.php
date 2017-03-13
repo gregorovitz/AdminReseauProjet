@@ -6,14 +6,13 @@ try{
     $infos = $sth->execute();
     $infos = $sth->fetchAll(PDO::FETCH_ASSOC);
     $dbh = null;
-    $ligne="<article><table><tr><th>NOM</th><th>PRENOM</th></tr>";
+    $ligne="";
     foreach($infos as $key=>$value){
 	    $ligne.='<tr>';
 	    $ligne.='<td>'.$array[$key]["nom"].'</td>';
 	    $ligne.='<td>'.$array[$key]["prenom"].'</td>';
 	    $ligne.='</tr>';
     }
-    $ligne.="</table></article>";
 }
 catch (PDOException $Exception){
     $ligne='<tr><td>'.$Exception->getMessage( ).'</td></tr>';
@@ -57,12 +56,13 @@ echo'
 		</fieldset>
 	</section>
 	<hr>
+	<article>
+	    <table>
+	      <tr><th>NOM</th><th>PRENOM</th></tr>
+	      '.$ligne.'
+	    </table>
+	</article>
     <p> Tableau de donnée venant de la base de donnée :
-<table>
-		  <tr><th>NOM</th><th>PRENOM</th></tr>
-'.$ligne.'
-	  </table>
-	    
 	    <br><br> Adresse du site : <b>b2b.wt17.ephec-ti.be</b> </p>
   </body>
 </html>';
