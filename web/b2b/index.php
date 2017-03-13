@@ -1,18 +1,12 @@
 <?php
 try{
-$sql='SELECT * from test.clients';
-$dbh = new PDO('mysql:host=172.17.0.1;dbname=test','pseudo','wt17');
-$sth = $dbh->prepare($sql);
-$infos = $sth->execute();
-$infos = $sth->fetchAll(PDO::FETCH_ASSOC);
-$dbh = null;
-$ligne="";
-    foreach($infos as $elem){
-        $ligne.='<tr>';
-        $ligne.='<td>'.$infos[$elem]["nom"].'</td>';
-        $ligne.='<td>'.$infos[$elem]["prenom"].'</td>';
-        $ligne.='</tr>';
-    }
+    $sql='SELECT * from test.clients';
+    $dbh = new PDO('mysql:host=79.137.38.244;dbname=test','pseudo','wt17');
+    $sth = $dbh->prepare($sql);
+    $infos = $sth->execute();
+    $infos = $sth->fetchAll(PDO::FETCH_ASSOC);
+    $dbh = null;
+    $ligne.='<tr><td><pre>'.print_r($infos,true).'</pre></td></tr>';
 }
 catch (PDOException $Exception){
     $ligne='<tr><td>'.$Exception->getMessage( ).'</td></tr>';
