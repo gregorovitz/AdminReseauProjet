@@ -13,7 +13,7 @@ RUN chmod 755 /start
 
 # Copy this repo into place.
 ADD named.conf.local /etc/bind/named.conf.local
-ADD db.wt17.ephec-ti.be.hosts /var/lib/bind/wt17.ephec-ti.be
+ADD db.wt17.ephec-ti.be.hosts /var/lib/bind/db.wt17.ephec-ti.be.hosts
 Run  chmod  755 /var/lib/bind/wt17.ephec-ti.be
 
 # Expose dns 
