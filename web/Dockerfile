@@ -1,10 +1,8 @@
-#FROM ubuntu:latest
-#MAINTAINER Scuflaire Thomas <t.scuflaire@students.ephec.be>
+MAINTAINER Scuflaire Thomas <t.scuflaire@students.ephec.be>
 
 FROM php:7.1-apache
-# Installation d'apache et des autres programmes nécessaire
-#RUN apt-get update && apt-get -y upgrade && DEBIAN_FRONTEND=noninteractive apt-get -y install \
-#    apache2 php7.0 php7.0-mysql libapache2-mod-php7.0 curl lynx-cur
+
+# Installation des modules nécessaires
 RUN apt-get update && apt-get install -y locales git-core libsqlite3-dev libicu-dev libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libpng12-dev libpq-dev libexif-dev libmcrypt-dev libpng12-dev libjpeg-dev && rm -rf /var/lib/apt/lists/* \
         && docker-php-ext-configure gd --with-png-dir=/usr --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include \
         && docker-php-ext-install gd mysqli pdo pdo_mysql pdo_sqlite pdo_pgsql json
