@@ -1,4 +1,4 @@
-FROM ubuntu:14.04.20170123
+FROM ubuntu:14.04
 MAINTAINER t.scuflaire@students.ephec.be
 
 
