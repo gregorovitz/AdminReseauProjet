@@ -10,8 +10,14 @@ RUN a2enmod php7.0
 RUN a2enmod rewrite
 
 # creation certificat ssl
-RUN openssl req -x509 -nodes -days 365 -newkey rsa:1024 -out /etc/apache2/server.crt -keyout /etc/apache2/server.key -subj "/C=BE/ST=Belgium/L=Genappe/O=wt17k/OU=wt17/CN=www.wt17.ephec-ti.be"
-RUN chmod o-rw /etc/apache2/server.key
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:1024 -out /etc/apache2/server1.crt -keyout /etc/apache2/server1.key -subj "/C=BE/ST=Belgium/L=Genappe/O=wt17k/OU=wt17/CN=www.wt17.ephec-ti.be"
+RUN chmod o-rw /etc/apache2/server1.key
+
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:1024 -out /etc/apache2/server2.crt -keyout /etc/apache2/server2.key -subj "/C=BE/ST=Belgium/L=Genappe/O=wt17k/OU=wt17/CN=b2b.wt17.ephec-ti.be"
+RUN chmod o-rw /etc/apache2/server2.key
+
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:1024 -out /etc/apache2/server3.crt -keyout /etc/apache2/server3.key -subj "/C=BE/ST=Belgium/L=Genappe/O=wt17k/OU=wt17/CN=intranet.wt17.ephec-ti.be"
+RUN chmod o-rw /etc/apache2/server3.key
 
 # Update the PHP.ini file, enable <? ?> tags and quieten logging.
 RUN sed -i "s/short_open_tag = Off/short_open_tag = On/" /etc/php/7.0/apache2/php.ini
