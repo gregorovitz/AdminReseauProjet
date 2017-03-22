@@ -1,6 +1,7 @@
-MAINTAINER Scuflaire Thomas <t.scuflaire@students.ephec.be>
 
 FROM php:7.1-apache
+
+MAINTAINER Scuflaire Thomas <t.scuflaire@students.ephec.be>
 
 # Installation des modules nécessaires
 RUN apt-get update && apt-get install -y locales git-core libsqlite3-dev libicu-dev libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libpng12-dev libpq-dev libexif-dev libmcrypt-dev libpng12-dev libjpeg-dev && rm -rf /var/lib/apt/lists/* \
