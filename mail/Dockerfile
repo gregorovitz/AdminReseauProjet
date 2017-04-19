@@ -26,7 +26,8 @@ ADD start.sh /start.sh
 
 # default config
 ENV DB_HOST localhost
-ENV DB_USER root 
+ENV DB_USER root
+ENV DB_PASSWORD wt17
 
 # SMTP ports
 EXPOSE 25
