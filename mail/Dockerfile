@@ -25,7 +25,7 @@ RUN echo "dovecot   unix  -       n       n       -       -       pipe"  >> /etc
 ADD start.sh /start.sh  
 
 # default config
-ENV DB_HOST localhost
+ENV DB_HOST 79.137.39.38
 ENV DB_USER root
 ENV DB_PASSWORD wt17
 
