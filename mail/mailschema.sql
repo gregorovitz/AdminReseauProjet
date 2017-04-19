@@ -1,9 +1,9 @@
-CREATE TABLE `mail_virtual_domains` (
+CREATE TABLE mail_virtual_domains (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(50) NOT NULL
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `mail_virtual_users` (
+CREATE TABLE mail_virtual_users (
   id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   domain_id INT(11) NOT NULL,
   user VARCHAR(40) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE `mail_virtual_users` (
 CONSTRAINT UNIQUE_EMAIL UNIQUE (domain_id,user),
 FOREIGN KEY (domain_id) REFERENCES mail_virtual_domains(id) ON DELETE CASCADE) ENGINE = InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `mail_virtual_aliases` (
+CREATE TABLE mail_virtual_aliases (
   id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   domain_id INT(11) NOT NULL,
   source VARCHAR(40) NOT NULL,
