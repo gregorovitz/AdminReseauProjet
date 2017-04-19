@@ -6,7 +6,7 @@ $ttl 38400
 			604800
 			38400 )
 @	IN	NS	ns.wt17.ephec-ti.be.
-	IN	MX 	10 mail.wt17.ephec-ti.be.
+	IN	MX 	10	mail.wt17.ephec-ti.be.
 mail	IN	A	79.137.39.37
 ns	IN	A	79.137.39.7
 www	IN	A	79.137.38.244
