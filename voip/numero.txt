@@ -1,0 +1,37 @@
+1000 => Voicemail des secretaires
+
+1001 => secretaire
+
+2000=> Voicemail des ouvriers
+
+2001 => ouvriers1
+
+2002 => ouvriers2
+
+3000 => Voicemail des comptables
+
+3001 => comptable1
+
+3002 => comptable2
+
+3999 => Le premier comptable disponible
+
+4000 => Voicemail des commerciaux
+
+4001 => commercial1
+
+4002 => commercial2
+
+5000 => Voicemail des directeurs
+
+5001 => directeur
+
+1XXX => Les secretaires
+
+2XXX => Les ouvriers
+
+3XXX => Les comptables
+
+4XXX => Les commerciaux
+
+5XXX => Les directeurs
