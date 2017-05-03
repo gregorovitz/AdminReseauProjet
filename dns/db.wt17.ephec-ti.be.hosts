@@ -12,3 +12,5 @@ ns	IN	A	79.137.39.7
 www	IN	A	79.137.38.244
 b2b	IN	A	79.137.38.244
 intranet IN A 79.137.38.244
+_sip._tcp.wt17.ephec-ti.be 3600 IN SRV 10 60 5060 voip.wt17.ephec-ti.be
+voip IN A 79.137.39.7
