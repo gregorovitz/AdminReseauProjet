@@ -55,6 +55,7 @@ ADD users.conf /etc/asterisk/users.conf
 ADD sip.conf /etc/asterisk/sip.conf
 ADD extensions.conf /etc/asterisk/extensions.conf
 ADD voicemail.conf /etc/asterisk/voicemail.conf
+ADD iax.conf  /etc/asterisk/iax.conf
 
 EXPOSE 5060/udp
 EXPOSE 5060/tcp
