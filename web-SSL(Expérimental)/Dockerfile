@@ -34,8 +34,9 @@ ADD b2b /var/www/site2
 ADD intranet /var/www/site3
 
 # remplacer la config de base par la nouvelle
-ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
+ADD apache-config.conf /etc/apache2/sites-enabled/default-ssl.conf
 
-RUN a2enmod ssl
+RUN a2ensite default-ssl.conf
+RUN service apache2 restart
 # démarrer apache en tâche de fond
 CMD /usr/sbin/apache2ctl -D FOREGROUND
