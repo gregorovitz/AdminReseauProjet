@@ -12,19 +12,17 @@ RUN a2enmod ssl
 RUN a2ensite default-ssl
 
 # creation certificat ssl
-RUN cd /etc/ssl
+RUN openssl genrsa -out /etc/ssl/server1.key 2048
+RUN openssl req -new -key /etc/ssl/server1.key -out /etc/ssl/server1.csr -subj "/C=BE/ST=Belgium/L=Genappe/O=wt17k/OU=wt17/CN=www.wt17.ephec-ti.be"
+RUN openssl x509 -req -days 365 -in /etc/ssl/server1.csr -signkey /etc/ssl/server1.key -out /etc/ssl/server1.crt
 
-RUN openssl genrsa -out server1.key 2048
-RUN openssl req -new -key server1.key -out server1.csr -subj "/C=BE/ST=Belgium/L=Genappe/O=wt17k/OU=wt17/CN=www.wt17.ephec-ti.be"
-RUN openssl x509 -req -days 365 -in server1.csr -signkey server1.key -out server1.crt
+RUN openssl genrsa -out /etc/ssl/server2.key 2048
+RUN openssl req -new -key /etc/ssl/server2.key -out /etc/ssl/server2.csr -subj "/C=BE/ST=Belgium/L=Genappe/O=wt17k/OU=wt17/CN=b2b.wt17.ephec-ti.be"
+RUN openssl x509 -req -days 365 -in /etc/ssl/server2.csr -signkey /etc/ssl/server2.key -out /etc/ssl/server2.crt
 
-RUN openssl genrsa -out server2.key 2048
-RUN openssl req -new -key server2.key -out server2.csr -subj "/C=BE/ST=Belgium/L=Genappe/O=wt17k/OU=wt17/CN=b2b.wt17.ephec-ti.be"
-RUN openssl x509 -req -days 365 -in server2.csr -signkey server2.key -out server2.crt
-
-RUN openssl genrsa -out server3.key 2048
-RUN openssl req -new -key server3.key -out server3.csr -subj "/C=BE/ST=Belgium/L=Genappe/O=wt17k/OU=wt17/CN=intranet.wt17.ephec-ti.be"
-RUN openssl x509 -req -days 365 -in server3.csr -signkey server3.key -out server3.crt
+RUN openssl genrsa -out /etc/ssl/server3.key 2048
+RUN openssl req -new -key /etc/ssl/server3.key -out /etc/ssl/server3.csr -subj "/C=BE/ST=Belgium/L=Genappe/O=wt17k/OU=wt17/CN=intranet.wt17.ephec-ti.be"
+RUN openssl x509 -req -days 365 -in /etc/ssl/server3.csr -signkey /etc/ssl/server3.key -out /etc/ssl/server3.crt
 
 # Déclaration des variables d'environnement
 ENV APACHE_RUN_USER www-data
