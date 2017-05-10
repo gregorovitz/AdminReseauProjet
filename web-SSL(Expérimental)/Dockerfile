@@ -43,8 +43,5 @@ ADD intranet /var/www/site3
 # remplacer la config de base par la nouvelle
 ADD apache-config.conf /etc/apache2/sites-enabled/default-ssl.conf
 run echo "listen 443" >> /etc/apache2/ports.conf
-
-RUN service apache2 reload
-
 # démarrer apache en tâche de fond
 CMD /usr/sbin/apache2ctl -D FOREGROUND
