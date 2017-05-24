@@ -1,4 +1,4 @@
-﻿FROM centos:centos7
+FROM centos:centos7
 MAINTAINER HE201175@students.ephec.be
 
 RUN yum update -y
@@ -55,7 +55,6 @@ ADD users.conf /etc/asterisk/users.conf
 ADD sip.conf /etc/asterisk/sip.conf
 ADD extensions.conf /etc/asterisk/extensions.conf
 ADD voicemail.conf /etc/asterisk/voicemail.conf
-ADD iax.conf  /etc/asterisk/iax.conf
 
 EXPOSE 5060/udp
 EXPOSE 5060/tcp
