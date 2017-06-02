@@ -1,3 +1,23 @@
+<?php
+try{
+    $sql='SELECT * from test.clients';
+    $dbh = new PDO('mysql:host=172.17.0.1;dbname=test','pseudo','wt17');
+    $sth = $dbh->prepare($sql);
+    $infos = $sth->execute();
+    $infos = $sth->fetchAll(PDO::FETCH_ASSOC);
+    $dbh = null;
+    $ligne="";
+    foreach($infos as $key=>$value){
+	    $ligne.='<tr>';
+	    $ligne.='<td>'.$infos[$key]["nom"].'</td>';
+	    $ligne.='<td>'.$infos[$key]["prenom"].'</td>';
+	    $ligne.='</tr>';
+    }
+}
+catch (PDOException $Exception){
+    $ligne='<tr><td>'.$Exception->getMessage( ).'</td></tr>';
+}
+echo'
 <html>
 	<head>
 		<link rel=stylesheet href="style.css">
@@ -36,8 +56,13 @@
 		</fieldset>
 	</section>
 	<hr>
-    <p> Un tableau prouvant la connexion à la db sera affiché ici quand elle sera disponible<br><br> Adresse du site : <b>b2b.wt17.ephec-ti.be</b> </p>
+	<p> Tableau de donnée venant de la base de donnée : </p>
+	<article>
+	    <table>
+	      <tr><th>NOM</th><th>PRENOM</th></tr>
+	      '.$ligne.'
+	    </table>
+	</article>
+	<br><br><p> Adresse du site : <b>b2b.wt17.ephec-ti.be</b> </p>
   </body>
-</html>
-
-
+</html>';
