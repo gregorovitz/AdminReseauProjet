@@ -4,7 +4,6 @@ MAINTAINER Scuflaire Thomas <t.scuflaire@students.ephec.be>
 # Installation d'apache et des autres programmes nécessaire
 RUN apt-get update && apt-get -y install \
     apache2 php7.0 php7.0-mysql libapache2-mod-php7.0 curl lynx-cur
-RUN docker-php-ext-install mysqli pdo pdo_mysql pdo_sqlite
 
 # Activation des mods php
 RUN a2enmod php7.0
